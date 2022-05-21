@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "ironman": "nodemon src/index.js"
+    "start": "node src/index.js",
+    "ironman": "nodemon src/index.js",
+    "heroku": "git push heroku master"
   },
   "dependencies": {
     "cors": "^2.8.5",
