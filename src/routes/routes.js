@@ -4,7 +4,7 @@ const TestController = require('../controllers/TestController')
 
 const routes = Router();
 
-routes.get('/', TestController.index);
+routes.get('/teste', TestController.index);
 
 
 module.exports = routes;
