@@ -2,11 +2,9 @@ const Product = require('../models/tb-products')
 
 
 
-exports.index = async () => {
+exports.findByCreationDate = async () => {
    try {
-      // const response = await Product.findOne()
-
-      const response = 2
+      const response = await Product.findAll()
       // console.log(response)
 
       return response

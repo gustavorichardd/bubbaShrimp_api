@@ -4,7 +4,8 @@ const sequelize = new Sequelize()
 const Weight = sequelize.define('weight', {
    id_weight: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      primaryKey: true
    },
    nm_weight: {
       type: DataTypes.STRING,

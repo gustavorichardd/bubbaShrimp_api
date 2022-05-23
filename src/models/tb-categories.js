@@ -4,7 +4,8 @@ const sequelize = new Sequelize()
 const Category = sequelize.define('category', {
    id_category: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      primaryKey: true
    },
    uuid_category: {
       type: DataTypes.UUID,

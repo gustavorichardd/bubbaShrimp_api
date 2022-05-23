@@ -1,10 +1,11 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes, Sequelize } = require('sequelize');
 const sequelize = require('../config/connection')
 
 const Product = sequelize.define('product', {
    id_product: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      primaryKey: true
    },
    uuid_product: {
       type: DataTypes.UUID,
@@ -20,7 +21,6 @@ const Product = sequelize.define('product', {
    },
    url_image: {
       type: DataTypes.STRING,
-      allowNull: false
    },
    val_quanty: {
       type: DataTypes.INTEGER,
@@ -29,6 +29,11 @@ const Product = sequelize.define('product', {
    val_weight: {
       type: DataTypes.FLOAT,
       allowNull: false
+   },
+   dt_created_at: {
+      type: DataTypes.DATE,
+      allowNull: true,
+      defaultValue: Sequelize.NOW,
    },
    fk_id_weight: {
       type: DataTypes.INTEGER,
