@@ -31,7 +31,7 @@ const Product = sequelize.define('product', {
       allowNull: false
    },
    dt_created_at: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: true,
       defaultValue: Sequelize.NOW,
    },
