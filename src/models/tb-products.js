@@ -5,10 +5,12 @@ const Product = sequelize.define('product', {
    id_product: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      autoIncrement: true,
       primaryKey: true
    },
    uuid_product: {
       type: DataTypes.UUID,
+      defaultValue: Sequelize.UUIDV4,
       allowNull: false
    },
    nm_product: {
@@ -40,6 +42,10 @@ const Product = sequelize.define('product', {
       allowNull: false
    },
    fk_id_category: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+   },
+   fk_id_company: {
       type: DataTypes.INTEGER,
       allowNull: false
    },
