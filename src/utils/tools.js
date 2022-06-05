@@ -4,11 +4,11 @@ function getFormatDate(value) {
       const dateSplit = value.split("/")
       value = dateSplit[2] + "-" + dateSplit[1] + "-" + dateSplit[0]
    }
-   console.log(value)
 
    const date = new Date(value)
 
    const setZero = (value) => {
+      // value + 1
       return String(value).length === 1 ? "0" + value : value
    }
 

@@ -1,5 +1,5 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize()
+const sequelize = require('../config/connection')
 
 const Weight = sequelize.define('weight', {
    id_weight: {

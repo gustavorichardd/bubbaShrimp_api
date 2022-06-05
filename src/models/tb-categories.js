@@ -1,14 +1,21 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize()
+const sequelize = require('../config/connection')
 
 const Category = sequelize.define('category', {
    id_category: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
    },
    uuid_category: {
       type: DataTypes.UUID,
+      defaultValue: Sequelize.UUIDV4,
+      allowNull: false,
+
+   },
+   tp_category: {
+      type: DataTypes.BOOLEAN,
       allowNull: false
    },
    nm_category: {
