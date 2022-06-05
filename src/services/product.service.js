@@ -1,6 +1,4 @@
 const Product = require('../models/tb-products')
-
-
 /**
 * @Param - where - dados da consulta
  */

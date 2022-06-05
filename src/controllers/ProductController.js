@@ -2,7 +2,7 @@
 const ProductService = require('../services/product.service')
 const tools = require("../utils/tools");
 
-const database = require('../config/connection')
+const { sequelize } = require('../config/connection')
 
 module.exports.find = async (req, res) => {
    const { date, value } = req.query
@@ -28,13 +28,12 @@ module.exports.find = async (req, res) => {
 module.exports.create = async (req, res) => {
    let data = req.body
    const companyId = req.headers.company
-   const file = req.file
 
-   const transaction = await database.transaction();
+   const transaction = await sequelize.transaction();
 
    data = {
       ...data,
-      dt_created_at: database.fn('NOW'),
+      dt_created_at: sequelize.fn('NOW'),
       fk_id_company: companyId
    }
 
