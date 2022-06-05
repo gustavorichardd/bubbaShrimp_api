@@ -8,8 +8,6 @@ module.exports.find = async (req, res) => {
    const { date, value } = req.query
    const companyId = req.headers.company
 
-   console.log(date)
-   console.log(tools.getFormatDate(date).getDate('YYYY-MM-DD'))
 
    let where = {
       fk_id_company: companyId
