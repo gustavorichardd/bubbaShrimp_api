@@ -1,6 +1,6 @@
 const CategoryService = require('../services/category.service')
 const tools = require("../utils/tools");
-const database = require('../config/connection')
+const { sequelize } = require('../config/connection')
 
 module.exports.find = async (req, res) => {
    const companyId = req.headers.company
@@ -17,7 +17,7 @@ module.exports.find = async (req, res) => {
 module.exports.create = async (req, res) => {
    let data = req.body
    const companyId = req.headers.company
-   const transaction = await database.transaction();
+   const transaction = await sequelize.transaction();
 
    data = {
       ...data,
