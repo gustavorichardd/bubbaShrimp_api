@@ -11,7 +11,7 @@ exports.find = async (where) => {
       return response
    } catch (err) {
       console.log(err)
-      return err
+      return false
    }
 }
 
@@ -23,6 +23,6 @@ exports.create = async (data, transaction) => {
       return response
    } catch (err) {
       console.log(err)
-      return err
+      return false
    }
 }

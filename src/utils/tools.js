@@ -21,11 +21,11 @@ function getFormatDate(value) {
 
       switch (format) {
          case "DD/MM":
-            return setZero(date.getDate()) + "/" + getMonth(date.getMonth())
+            return setZero(date.getDate() + 1) + "/" + getMonth(date.getMonth())
          case "DD/MM/YYYY":
             return setZero(date.getDate()) + "/" + getMonth(date.getMonth()) + "/" + date.getFullYear()
          case "YYYY-MM-DD":
-            return date.getFullYear() + "-" + getMonth(date.getMonth()) + "-" + setZero(date.getDate())
+            return date.getFullYear() + "-" + getMonth(date.getMonth()) + "-" + setZero(date.getDate() + 1)
          case "DD/MM/YYYY HH:mm":
             return setZero(date.getDate()) + "/" + getMonth(date.getMonth()) + "/" + date.getFullYear() + " " + setZero(date.getHours()) + ":" + setZero(date.getMinutes())
          case "YYYY-MM-DD HH:mm:ss":

@@ -2,6 +2,9 @@ const { Router } = require('express')
 
 const ProductController = require('../controllers/ProductController')
 const CategoryController = require('../controllers/CategoryController')
+const BeverageController = require('../controllers/BeverageController')
+const CustomerController = require('../controllers/CustomerController')
+const AddressController = require('../controllers/AddressController')
 
 const routes = Router();
 
@@ -16,6 +19,21 @@ routes.get('/category', CategoryController.find)
 
 // rota para cadastrar uma nova categoria para uma determinada companhia.
 routes.post('/category', CategoryController.create)
+
+// rota para buscar todas as bebidas cadastradas para uma determinada companhia. Podendo filtrar pelo nome de uma bebida ou sua categoria
+routes.get('/beverage', BeverageController.find)
+
+// rota para cadastrar uma nova bebida para uma determinada companhia.
+routes.post('/beverage', BeverageController.create)
+
+// rota para buscar todas os clientes cadastrados para uma determinada companhia.
+routes.get('/customer', CustomerController.find)
+
+// rota para cadastrar um novo cliente para uma determinada companhia.
+routes.post('/customer', CustomerController.create)
+
+// rota para cadastrar um novo endereço a ser vinculado a um cliente
+routes.post('/address', AddressController.create)
 
 
 

@@ -1,10 +1,10 @@
-const Product = require('../models/tb-products')
+const Customer = require('../models/tb-customers')
 /**
 * @Param - where - dados da consulta
  */
 exports.find = async (where) => {
    try {
-      const response = await Product.findAll({
+      const response = await Customer.findAll({
          where
       })
       return response
@@ -16,7 +16,7 @@ exports.find = async (where) => {
 
 exports.create = async (data, transaction) => {
    try {
-      const response = await Product.create(data, {
+      const response = await Customer.create(data, {
          transaction
       })
       return response
