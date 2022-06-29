@@ -1,16 +1,47 @@
+const { Op } = require('sequelize')
 const CustomerService = require('../services/customer.service')
 const AddressService = require('../services/address.service')
 const tools = require("../utils/tools");
 const { sequelize } = require('../config/connection')
 
 module.exports.find = async (req, res) => {
+   const { name, neighbourhood } = req.query
    const companyId = req.headers.company
 
-   const response = await CustomerService.find({ fk_id_company: companyId })
+   //tratando as consultas
+   let where = {
+      fk_id_company: companyId,
+   };
+   !!name ? where = {
+      ...where,
+      nm_customer: {
+         [Op.like]: `%${name}%`
+      }
+   } : ''
+
+
+   //Verifica se está filtrado pelo bairro
+   if (!!neighbourhood) {
+      console.log(neighbourhood)
+      const idAddress = await AddressService.find({
+         address_neighbourhood: neighbourhood
+      })
+
+      if (!idAddress) {
+         res.status(500).json('Falha ao consultar os clientes. (01)')
+      }
+      console.log(idAddress)
+      where = {
+         ...where,
+         fk_id_address: idAddress.dataValues.id_address
+      }
+   }
+
+   const response = await CustomerService.find(where)
 
    if (!response) {
       await transaction.rollback()
-      res.status(500).json('Falha ao consultar os clientes.')
+      res.status(500).json('Falha ao consultar os clientes. (02)')
    }
 
    return res.status(200).json(response)

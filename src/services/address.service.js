@@ -12,3 +12,13 @@ exports.create = async (data, transaction) => {
    }
 }
 
+exports.find = async (where) => {
+   console.log(where)
+   try {
+      const response = await Address.findOne({ where })
+      return response
+   } catch (err) {
+      console.log(err)
+      return false
+   }
+}

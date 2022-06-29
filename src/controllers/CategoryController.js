@@ -1,5 +1,4 @@
 const CategoryService = require('../services/category.service')
-const tools = require("../utils/tools");
 const { sequelize } = require('../config/connection')
 
 module.exports.find = async (req, res) => {

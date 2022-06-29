@@ -23,15 +23,11 @@ let seqConfig = {
 // Conectando ao banco de dados
 let sequelize = new Sequelize(process.env.BUBBA_DB, process.env.BUBBA_USER, process.env.BUBBA_PASSWORD, seqConfig);
 
-
-// sequelize.sync();
-
 // testando a conexáo
 sequelize
    .authenticate()
    .then(onDbSuccess)
    .catch(ErrorAuthenticateDb);
-
 
 function onDbSuccess() {
    console.log('Connected to MySQL');

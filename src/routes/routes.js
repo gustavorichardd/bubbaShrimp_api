@@ -6,6 +6,8 @@ const BeverageController = require('../controllers/BeverageController')
 const CustomerController = require('../controllers/CustomerController')
 const AddressController = require('../controllers/AddressController')
 const OrderController = require('../controllers/OrderController')
+const CompanyController = require('../controllers/CompanyController')
+const UserController = require('../controllers/UserController')
 
 const routes = Router();
 
@@ -41,5 +43,11 @@ routes.get('/order', OrderController.find)
 
 // rota para cadastrar um novo pedido para uma determinada companhia.
 routes.post('/order', OrderController.create)
+
+// rota para cadastrar uma nova companhia.
+routes.post('/company', CompanyController.create)
+
+// rota para cadastrar um novo usuário para uma determinada companhia.
+routes.post('/user', UserController.create)
 
 module.exports = routes;
