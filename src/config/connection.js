@@ -24,6 +24,8 @@ let seqConfig = {
 let sequelize = new Sequelize(process.env.BUBBA_DB, process.env.BUBBA_USER, process.env.BUBBA_PASSWORD, seqConfig);
 
 
+// sequelize.sync();
+
 // testando a conexáo
 sequelize
    .authenticate()

@@ -18,13 +18,13 @@ module.exports.find = async (req, res) => {
 module.exports.create = async (req, res) => {
    let { customer_data, customer_address } = req.body
    const companyId = req.headers.company
-   const transaction = await sequelize.transaction();
 
    customer_address = {
       ...customer_address,
       address_zipcode: customer_address.address_zipcode.trim().replace('-', '')
    }
 
+   const transaction = await sequelize.transaction();
    const responseAddress = await AddressService.create(customer_address, transaction)
 
    if (!responseAddress) {

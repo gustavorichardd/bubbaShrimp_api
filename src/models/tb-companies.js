@@ -11,7 +11,7 @@ const Company = sequelize.define('company', {
       type: DataTypes.STRING,
       allowNull: false
    },
-   addr_company: {
+   fk_id_addr_company: {
       type: DataTypes.STRING,
       allowNull: false
    },

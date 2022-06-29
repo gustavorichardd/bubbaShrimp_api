@@ -13,6 +13,10 @@ const Category = sequelize.define('category', {
       defaultValue: Sequelize.UUIDV4,
       allowNull: false
    },
+   tp_category: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+   },
    nm_category: {
       type: DataTypes.STRING,
       allowNull: false
