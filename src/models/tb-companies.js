@@ -1,5 +1,6 @@
-const { DataTypes, Sequelize } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/connection')
+const Address = require('./tb-addresses')
 
 const Company = sequelize.define('company', {
    id_company: {
@@ -22,5 +23,16 @@ const Company = sequelize.define('company', {
       timestamps: false,
       tableName: 'tb_companies'
    });
+
+
+// Company.belongsTo(Address)
+// Address.belongsTo(Company)
+Company.hasMany(Address, { as: 'teste2' })
+
+
+
+// sequelize.ass
+
+
 
 module.exports = Company

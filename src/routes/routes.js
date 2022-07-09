@@ -47,6 +47,9 @@ routes.post('/order', OrderController.create)
 // rota para cadastrar uma nova companhia.
 routes.post('/company', CompanyController.create)
 
+// rota para cadastrar uma nova companhia.
+routes.get('/company', CompanyController.find)
+
 // rota para cadastrar um novo usuário para uma determinada companhia.
 routes.post('/user', UserController.create)
 

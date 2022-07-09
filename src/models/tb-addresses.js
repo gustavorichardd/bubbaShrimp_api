@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/connection')
+const Company = require('./tb-companies')
 
 const Address = sequelize.define('address', {
    id_address: {
@@ -37,6 +38,16 @@ const Address = sequelize.define('address', {
    {
       timestamps: false,
       tableName: 'tb_addresses'
-   });
+   }
+
+);
+
+
+Address.adress.belongsTo(Company, {
+   foreignKey: "fk_id_addr_company",
+   as: 'teste'
+})
+
+
 
 module.exports = Address

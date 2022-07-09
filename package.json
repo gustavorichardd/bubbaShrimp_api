@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node src/index.js",
-    "ironman": "nodemon src/index.js",
+    "strange": "nodemon src/index.js",
     "heroku": "git push heroku master"
   },
   "dependencies": {

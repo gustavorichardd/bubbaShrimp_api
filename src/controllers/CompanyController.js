@@ -3,16 +3,15 @@ const AddressService = require('../services/address.service')
 const { sequelize } = require('../config/connection')
 
 module.exports.find = async (req, res) => {
-   // const companyId = req.headers.company
+   const companyId = req.headers.company
 
-   // const response = await CategoryService.find({ fk_id_company: companyId })
+   const response = await CompanyService.find({ id_company: companyId })
 
-   // if (!response) {
-   //    await transaction.rollback()
-   //    res.status(500).json('Falha ao consultar as categorias.')
-   // }
+   if (!response) {
+      res.status(500).json('Falha ao consultar a loja.')
+   }
 
-   // return res.status(200).json(response)
+   return res.status(200).json(response)
 }
 module.exports.create = async (req, res) => {
    let { company_data, company_address } = req.body
